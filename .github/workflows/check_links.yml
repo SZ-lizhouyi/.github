@@ -1,0 +1,32 @@
+name: Link Check
+
+# 在每次 PR 和推送到主分支时检查文档链接，把「链接失效」挡在合并之前。
+# 检查范围：相对路径链接、页内锚点、跨文件锚点、未加 mailto: 的邮箱。
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  links:
+    name: 检查文档链接
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # check_links.py 只依赖标准库，不需要 pip install。
+      #
+      # 首次上线用「提示」模式：本仓库存量文档里还有若干失效链接（相对路径、
+      # 页内锚点等），如果一上来就阻断，会让所有 PR 立刻变红，反而不利于
+      # 推广。这里先只报告不阻断，等存量问题清理完后删掉下面这行
+      # continue-on-error，即可升级为强制检查。
+      - name: Check links
+        continue-on-error: true
+        run: python src/check_links.py --strict
