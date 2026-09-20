@@ -78,12 +78,12 @@ RoadRunner Scenario 的中文翻译文档。
 ### [交通数字孪生](https://github.com/OpenHUTB/driving)
 包括交通场景数字孪生、区域信控、车流诱导、停车管理等模块。
 
-### [交通大模型](https://github.com/OpenHUTB/gpt)
+### [交通大模型](https://github.com/OpenHUTB/traffic_llm)
 实现人类语音进行交通场景的编辑和控制。
 
 
 
-[本科毕设](https://github.com/OpenHUTB/hutb_latex) 
+[本科毕设](https://github.com/OpenHUTB/undergraduate) 
 本科毕业设计的`latex`模板。
 
 [研究生毕设](https://github.com/OpenHUTB/master)
