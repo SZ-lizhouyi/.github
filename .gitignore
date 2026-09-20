@@ -1,0 +1,21 @@
+# MkDocs 构建产物（`mkdocs build` / `mkdocs gh-deploy` 生成，CI 中由 actions-mkdocs 构建后发布到 gh-pages）
+/site/
+
+# 构建期生成文件：hooks.py 的 on_pre_build 会把根目录的 CONTRIBUTING.md
+# 复制到 docs/ 下，以便文档站能够引用它。这是构建产物，不应纳入版本控制。
+/docs/CONTRIBUTING.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# 编辑器与操作系统
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
